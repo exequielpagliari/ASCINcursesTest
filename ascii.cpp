@@ -6,32 +6,28 @@
 
 int loop = 1;
 int x = 10;
-int old_x;
 int y = 10;
-int old_y;
 
 int main() {
     initscr(); // Inicializa Ncurses
-    noecho();
+    noecho(); // No repite teclas
     curs_set(FALSE);
-    // Dibuja un personaje
+
 
     while(loop)
 {
 
 
    int chr = getch();
-   clear();
+   clear(); //Borra pantalla
    switch(chr) {
    case  'q': // Espera una tecla
         loop = 0;
         break;
    case 'd':
-old_x=x;
         x--;
        break;
   case 'g':
-       old_x=x;
        x++;
        break;
   case 'f':
@@ -43,9 +39,9 @@ old_x=x;
 }
 
 
-    mvprintw(y, x, "o");
-  refresh(); // Actualiza la pantalla
-   usleep(DELAY);
+   mvprintw(y, x, "o");
+   refresh(); // Actualiza la pantalla
+   usleep(DELAY); // Delay
 }
     endwin(); // Finaliza Ncurses
     return 0;
